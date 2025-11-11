@@ -1,1 +1,3 @@
-Cópia de modelo para robo indicação.xlsx
+# Ignorar arquivos da automação
+*.xlsx
+*.png
