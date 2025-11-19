@@ -1,18 +1,22 @@
 # Automação de Cadastro de Leads no Salesforce  
-### *Projeto em Python usando PyAutoGUI + Pandas para automação de processos repetitivos*  
+### *Projeto em Python usando PyAutoGUI + Pandas + Tkinter*  
 
 ## O que aprendi e quais problemas esse projeto resolveu  
 
 Este projeto representa um avanço significativo na minha habilidade de automatizar processos operacionais usando Python. Durante o desenvolvimento, aprofundei meus conhecimentos em:
 
-- **Automação de interface gráfica com PyAutoGUI**  
+- **Automação RPA com PyAutoGUI**  
   - Captura de coordenadas na tela  
   - Controle de fluxo e timing para interagir com elementos dinâmicos  
   - Prevenção de erros com pausas e validações  
 - **Manipulação de dados com Pandas**  
   - Leitura e limpeza de planilhas de Excel  
   - Iteração linha a linha em grandes volumes de dados  
-  - Garantia de consistência e integridade dos dados enviados  
+  - Garantia de consistência e integridade dos dados enviados
+- **Interface gáfica com Tkinter**  
+  - Controle da automação em uma janela interativa  
+  - Integração de botões e callbacks para iniciar a automação  
+  - Renderização de layout a partir de protótipos do Figma  
 
 ### 🎯 Problema resolvido  
 Antes da automação, o processo de cadastrar leads na plataforma Salesforce era **manual, repetitivo e altamente sujeito a erros humanos**. Cada lead exigia:
@@ -40,14 +44,15 @@ Este repositório contém um script em Python que automatiza o cadastro de leads
 
 - **Python 3.x**
 - **Pandas** — leitura e manipulação da planilha  
-- **PyAutoGUI** — automação da interface gráfica  
+- **PyAutoGUI** — automação RPA
+- **Tkinter** — interface gráfica    
 - **Time / OS** — controle de fluxo, tempo de execução e manipulação de arquivos  
 
 ---
 
 # 📈 Funcionamento geral
 
-1. O script carrega uma planilha Excel contendo os dados dos leads.  
+1. O script cria uma interface e após clicar em iniciar carrega uma planilha Excel contendo os dados dos leads.  
 2. Para cada linha, extrai informações como:
    - nome  
    - sobrenome  
