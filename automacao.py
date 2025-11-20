@@ -25,8 +25,20 @@ email_padrao = 'empresario@gmail.com'
 # Coluna adicionada para registrar o status final do lead
 tabela["STATUS"] = ""
 
+#def iniciar():
+    # Minimiza a interface antes da automação
+    #window.iconify()
+    #print('Interface minimizada')
+    # Aguarda 0.5 segundos e inicia a automação
+    #window.after(500, btn_clicked)
+
 # Função que executa a automação ao clicar no botão de iniciar
 def btn_clicked():
+
+    # Minimiza a interface
+    window.iconify()
+    print('Interface minimizada')
+    window.after(500, btn_clicked)
 
     print("Iniciando automação em 5 segundos...")
     print("Posicione a janela do formulário e não mexa no mouse!")
