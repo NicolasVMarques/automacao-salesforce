@@ -3,15 +3,12 @@ import time
 import pandas as pd
 from pyautogui import ImageNotFoundException
 from tkinter import *
+from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
-import sys
 
-# Ativa o FAILSAFE para garantir a pausa da automação quando necessário
+# Ativa o FAILSAFE para garantir a pausa da automação quando necessária
 pyautogui.FAILSAFE = True
 pyautogui.PAUSE = 0.1
-
-# Carrega a planilha de contatos a serem processados
-tabela = pd.read_excel('Indica_robo_19-11-2025.xlsx')
 
 # Coordenadas dos campos na interface do Salesforce
 campo_primeiro_nome_x, campo_primeiro_nome_y = 385, 356
@@ -28,21 +25,23 @@ botao_cancelar_x, botao_cancelar_y = 1143, 118
 # Email padrão aplicado quando um contato não possui email
 email_padrao = 'empresario@gmail.com'
 
-# Coluna adicionada para registrar o status final do lead
-tabela["STATUS"] = ""
-
 # Função que executa a automação ao clicar no botão de iniciar
 def btn_clicked():
 
     try:
 
-        # Minimiza a interface
+        # Abre o explorador de arquivos e solicita ao usuário para selecionar um arquivo Excel
+        tabela_caminho = askopenfilename(title='selecione um arquivo Excel (.xlsx)')
+        tabela = pd.read_excel(tabela_caminho)
+        tabela["STATUS"] = ""
+
+        # Minimiza a interface para começar a automação
         window.iconify()
         print('Interface minimizada')
 
         print("Iniciando automação em 5 segundos...")
         print("Posicione a janela de indicação e não mexa no mouse!")
-        print("Para pausar a automação: Mova o mouse para o canto superior esquerdo.")
+        print("Para pausar a automação: Mova o mouse para o canto superior esquerdo até aparecer uma janela de pausa.")
         time.sleep(5)
 
         # Loop que percorre todos os registros da planilha
@@ -130,6 +129,7 @@ def btn_clicked():
         # Exporta a planilha final com o status de cada contato
         tabela.to_excel("lemit_indicados (ROBO).xlsx", index=False)
 
+    # Cria uma janela quando a pessoa pausa a automação
     except pyautogui.FailSafeException:
         messagebox.showinfo("Pausado", "Automação PAUSADA.")
         print("Automação pausada pelo usuário.")
@@ -138,7 +138,7 @@ def btn_clicked():
 
 # Gera a interface
 window = Tk()
-
+window.title('Automação Salesforce')
 window.geometry("616x357")
 window.configure(bg = "#ffffff")
 canvas = Canvas(
