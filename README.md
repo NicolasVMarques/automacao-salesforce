@@ -53,13 +53,11 @@ Este repositório contém um script em Python que automatiza o cadastro de leads
 # 📈 Funcionamento geral
 
 1. O script cria uma interface e após clicar em iniciar carrega uma planilha Excel contendo os dados dos leads.  
-2. Para cada linha, extrai informações como:
-   - nome  
-   - sobrenome  
-   - email  
-   - telefone  
-   - razão social  
-   - CNPJ  
+2. Para cada linha, extrai informações como (As informações precisam estar escrita exatamente desta forma):
+   - Contato
+   - Telefone  
+   - CNPJ
+   - EMAIL
 3. Abre (ou assume aberta) a tela do Salesforce.  
 4. Usa PyAutoGUI para:
    - clicar em cada campo  
