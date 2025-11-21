@@ -1,3 +1,4 @@
 # Ignorar arquivos da automação
 *.xlsx
-*.png
+img0.png
+Background.png
